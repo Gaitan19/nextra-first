@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 
-// components/Button.tsx
-
 const Button = ({
   children,
   variant = 'primary',
@@ -16,6 +14,10 @@ const Button = ({
     secondary: 'bg-gray-500 text-white hover:bg-gray-600',
     success: 'bg-green-500 text-white hover:bg-green-600',
     danger: 'bg-red-500 text-white hover:bg-red-600',
+    warning: 'bg-yellow-500 text-white hover:bg-yellow-600',
+    info: 'bg-teal-500 text-white hover:bg-teal-600',
+    light: 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+    dark: 'bg-black text-white hover:bg-gray-800',
   };
 
   const sizes = {
@@ -29,12 +31,28 @@ const Button = ({
 
   return (
     <button
-      className={`${baseStyles} ${variantStyles} ${sizeStyles} ${className}`} // Usa el CSS Module aquí
+      className={`${baseStyles} ${variantStyles} ${sizeStyles} ${className}`}
       {...props}
     >
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+  ]),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  className: PropTypes.string,
 };
 
 export default Button;
