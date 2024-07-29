@@ -17,6 +17,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/Components/button.js"
     ],
+    "/Components/card": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Components/card.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
