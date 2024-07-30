@@ -12,15 +12,15 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/Components/button": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Components/button.js"
-    ],
     "/Components/card": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/Components/card.js"
+    ],
+    "/Components/select": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Components/select.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
