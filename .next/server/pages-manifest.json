@@ -4,5 +4,6 @@
   "/_document": "pages/_document.js",
   "/Components/button": "pages/Components/button.js",
   "/Components/card": "pages/Components/card.js",
-  "/Components/select": "pages/Components/select.js"
+  "/Components/select": "pages/Components/select.js",
+  "/Components/Alert": "pages/Components/Alert.js"
 }

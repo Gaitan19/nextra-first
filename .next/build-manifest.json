@@ -12,6 +12,11 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/Components/Alert": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Components/Alert.js"
+    ],
     "/Components/card": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
