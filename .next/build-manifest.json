@@ -17,11 +17,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/Components/Alert.js"
     ],
-    "/Components/card": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Components/card.js"
-    ],
     "/Components/select": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

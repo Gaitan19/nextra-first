@@ -3,3 +3,145 @@ title: Alert
 ---
 
 # Alert Component
+
+The `Alert` component provides a simple way to display alert messages to users. It supports various types of alerts, such as success, error, warning, and info, and can be customized with different positions and durations.
+
+import { alertMessage } from '../../components/Alert';
+import Button from '../../components/Button';
+
+## Installation
+
+Requirements: React version >= 16.8 or above
+
+with yarn:
+
+```bash copy
+yarn add react-toastify
+```
+
+with npm:
+
+```bash copy
+npm install --save react-toastify
+```
+
+## The Playground
+
+#### Toas Container
+
+```jsx copy
+<ToastContainer
+  position="top-right"
+  autoClose={5000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="light"
+  transition:Bounce
+/>;
+{
+  /* Same as */
+}
+<ToastContainer />;
+```
+
+#### Toast Emitter
+
+```jsx copy
+toast('🦄 Wow so easy!', {
+  position: 'top-right',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'light',
+  transition: Bounce,
+});
+```
+
+## Examples
+
+### Success Alert
+
+<div className="mt-4 flex items-center justify-center  bg-gray-100">
+
+{' '}
+
+<Button
+  variant="Info"
+  size="medium"
+  className="m-4  text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.info('Info Notification!', { position: 'top-center' })
+  }
+>
+  Info
+</Button>
+
+<Button
+  variant="warning"
+  size="medium"
+  className="m-4  text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.warning('Warning Notification!', { position: 'top-center' })
+  }
+>
+  Warning
+</Button>
+
+{' '}
+
+<Button
+  variant="success"
+  size="medium"
+  className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.success('Success Notification!', { position: 'top-center' })
+  }
+>
+  Success
+</Button>
+<Button
+  variant="danger"
+  size="medium"
+  className="m-4  font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-900 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.error('Failed Notification!', { position: 'top-center' })
+  }
+>
+  Error
+</Button>
+
+</div>
+
+```jsx copy
+import { Alert, alertMessage } from './path-to-alert-component';
+
+const App = () => {
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Button
+        variant="primary"
+        size="medium"
+        className="mt-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+        onClick={() =>
+          alertMessage.success('Success Notification!', {
+            position: 'top-center',
+          })
+        }
+      >
+        Show Alert
+      </Button>
+      <Alert />
+    </div>
+  );
+};
+
+export default App;
+```
