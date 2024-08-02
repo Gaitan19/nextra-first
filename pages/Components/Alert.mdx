@@ -371,28 +371,48 @@ Transitions add a dynamic touch to alert notifications, making them more engagin
   <Button
     size="medium"
     className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-    onClick={() => alertMessage.info('Wow so easy!', { transition: Flip })}
+    onClick={() =>
+      alertMessage.info('Wow so easy!', {
+        position: 'top-right',
+        transition: Flip,
+      })
+    }
   >
     Flip
   </Button>
   <Button
     size="medium"
     className="m-4 bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-    onClick={() => alertMessage.info('Wow so easy!', { transition: Bounce })}
+    onClick={() =>
+      alertMessage.info('Wow so easy!', {
+        position: 'top-right',
+        transition: Bounce,
+      })
+    }
   >
     Bounce
   </Button>
   <Button
     size="medium"
     className="m-4 bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-    onClick={() => alertMessage.info('Wow so easy!', { transition: Zoom })}
+    onClick={() =>
+      alertMessage.info('Wow so easy!', {
+        position: 'top-right',
+        transition: Zoom,
+      })
+    }
   >
     Zoom
   </Button>
   <Button
     size="medium"
     className="m-4 bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-    onClick={() => alertMessage.info('Wow so easy!', { transition: Slide })}
+    onClick={() =>
+      alertMessage.info('Wow so easy!', {
+        position: 'top-right',
+        transition: Slide,
+      })
+    }
   >
     Slide
   </Button>
@@ -408,7 +428,12 @@ const App = () => {
       <Button
         size="medium"
         className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-        onClick={() => alertMessage.info('Wow so easy!', { transition: Flip })}
+        onClick={() =>
+          alertMessage.info('Wow so easy!', {
+            position: 'top-right',
+            transition: Flip,
+          })
+        }
       >
         Flip
       </Button>
