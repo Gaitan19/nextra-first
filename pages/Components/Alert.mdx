@@ -7,6 +7,7 @@ title: Alert
 The `Alert` component provides a simple way to display alert messages to users. It supports various types of alerts, such as success, error, warning, and info, and can be customized with different positions and durations.
 
 import { alertMessage } from '../../components/Alert';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 import Button from '../../components/Button';
 
 ## Installation
@@ -65,13 +66,59 @@ toast('🦄 Wow so easy!', {
 });
 ```
 
+#### Component
+
+This component is designed to handle alert messages using react-toastify. It provides a set of predefined methods for displaying different types of alerts: informational, success, warning, error, and default messages. Each method accepts a text message and optional configuration options for customization.
+
+The alertMessage object encapsulates these methods, enabling easy invocation of alert messages throughout your application. The Alert component renders a ToastContainer with default settings, including a top-left position, auto-close duration of 3000 milliseconds, newest alerts on top, and a light theme. These settings can be customized as needed.
+
+```jsx copy
+import { ToastContainer, toast, ToastOptions } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+interface AlertMessage {
+  info: (text: string, options?: ToastOptions) => void;
+  success: (text: string, options?: ToastOptions) => void;
+  warning: (text: string, options?: ToastOptions) => void;
+  error: (text: string, options?: ToastOptions) => void;
+  default: (text: string, options?: ToastOptions) => void;
+}
+
+const alertMessage: AlertMessage = {
+  info: (text: string, options?: ToastOptions) => toast.info(text, options),
+  success: (text: string, options?: ToastOptions) =>
+    toast.success(text, options),
+  warning: (text: string, options?: ToastOptions) =>
+    toast.warning(text, options),
+  error: (text: string, options?: ToastOptions) => toast.error(text, options),
+  default: (text: string, options?: ToastOptions) => toast(text, options),
+};
+
+const Alert = () => {
+  return (
+    <ToastContainer
+      position="top-left"
+      autoClose={3000}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable={false}
+      theme="light"
+    />
+  );
+};
+
+export { Alert, alertMessage };
+```
+
 ## Examples
 
-### Alert Variants
+### Types
+
+This section demonstrates how to use different types of alert notifications with the alertMessage component. Each button triggers a specific type of alert: Info, Warning, Success, or Error. These buttons are styled using Tailwind CSS to provide a visually appealing and interactive user experience.
 
 <div className="mt-4 flex items-center justify-center  bg-gray-100">
-
-{' '}
 
 <Button
   variant="Info"
@@ -145,3 +192,258 @@ const App = () => {
 
 export default App;
 ```
+
+### Themes
+
+This section demonstrates the application of different themes to alert notifications using the alertMessage component. The available themes are Dark, Light, and Colored. Each button triggers an alert with a specific theme, styled using Tailwind CSS for a visually appealing and interactive interface.
+
+Available Variations:
+
+- Dark Theme: Applies a dark background with white text.
+- Light Theme: Applies a light background with dark text.
+- Colored Theme: Applies a dynamic, multi-colored style for an eye-catching effect.
+
+<div className="mt-4 flex items-center justify-center  bg-gray-100">
+
+    <Button
+    variant="dark"
+    size="medium"
+    className="m-4 text-white font-semibold py-2 px-4 rounded-lg shadow-md bg-gray-800 hover:bg-gray-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() =>
+        alertMessage.success('Wow so easy!', {
+        position: 'top-center',
+        theme: 'dark',
+        })
+    }
+    >
+    Dark
+    </Button>
+
+    <Button
+    variant="light"
+    size="medium"
+    className="m-4 text-gray-700 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() =>
+        alertMessage.success('Wow so easy!', {
+        position: 'top-center',
+        theme: 'light',
+        })
+    }
+    >
+    Light
+    </Button>
+
+    <Button
+    variant="dark"
+    size="medium"
+    className="m-4 text-white font-semibold py-2 px-4 rounded-lg shadow-md bg-black hover:bg-black focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 border border-transparent hover:border-transparent"
+    style={{
+        boxShadow:
+        '0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 150, 0.5), 0 0 30px rgba(255, 140, 0, 0.5)',
+        borderImageSource: 'linear-gradient(to right, #ff0080, #ff8c00)',
+    }}
+    onClick={() =>
+        alertMessage.success('Wow so easy!', {
+        position: 'top-center',
+        theme: 'colored',
+        })
+    }
+    >
+    Colored
+    </Button>
+
+</div>
+
+```jsx copy
+import { Alert, alertMessage } from './path-to-alert-component';
+
+const App = () => {
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Button
+        variant="dark"
+        size="medium"
+        className="m-4 text-white font-semibold py-2 px-4 rounded-lg shadow-md bg-gray-800 hover:bg-gray-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+        onClick={() =>
+          alertMessage.success('Wow so easy!', {
+            position: 'top-center',
+            theme: 'dark',
+          })
+        }
+      >
+        Dark
+      </Button>
+      <Alert />
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Positions
+
+Positioning alerts effectively can significantly enhance the user experience by ensuring notifications are seen promptly. The alertMessage component provides flexibility in positioning alerts at various screen locations. This section demonstrates how to configure and use different alert positions: Top-center, Bottom-center, Top-right, Bottom-right, Top-left, and Bottom-left.
+
+<div className="mt-4 items-center justify-center  bg-gray-100 grid grid-rows-2 grid-flow-col">
+
+<Button
+  size="medium"
+  className="m-4  text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() => alertMessage.info('Wow so easy!', { position: 'top-center' })}
+>
+  Top-center
+</Button>
+
+<Button
+  size="medium"
+  className="m-4  font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.info('Wow so easy!', { position: 'bottom-center' })
+  }
+>
+  Bottom-center
+</Button>
+
+<Button
+  size="medium"
+  className="m-4  text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() => alertMessage.info('Wow so easy!', { position: 'top-right' })}
+>
+  Top-right
+</Button>
+
+<Button
+  size="medium"
+  className="m-4  font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() =>
+    alertMessage.info('Wow so easy!', { position: 'bottom-right' })
+  }
+>
+  Bottom-right
+</Button>
+
+<Button
+  size="medium"
+  className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() => alertMessage.info('Wow so easy!', { position: 'top-left' })}
+>
+  Top-left
+</Button>
+
+<Button
+  size="medium"
+  className="m-4  font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+  onClick={() => alertMessage.info('Wow so easy!', { position: 'bottom-left' })}
+>
+  Bottom-left
+</Button>
+
+</div>
+
+```jsx copy
+import { Alert, alertMessage } from './path-to-alert-component';
+
+const App = () => {
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Button
+        size="medium"
+        className="m-4  text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+        onClick={() =>
+          alertMessage.info('Wow so easy!', { position: 'top-center' })
+        }
+      >
+        Top-center
+      </Button>
+      <Alert />
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Transitions
+
+Transitions add a dynamic touch to alert notifications, making them more engaging and noticeable. The alertMessage component supports various transitions such as Flip, Bounce, Zoom, and Slide. This section demonstrates how to implement these transitions using styled buttons.
+
+<div className="mt-4 items-center justify-center  bg-gray-100 grid grid-rows-2 grid-flow-col">
+  <Button
+    size="medium"
+    className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() => alertMessage.info('Wow so easy!', { transition: Flip })}
+  >
+    Flip
+  </Button>
+  <Button
+    size="medium"
+    className="m-4 bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() => alertMessage.info('Wow so easy!', { transition: Bounce })}
+  >
+    Bounce
+  </Button>
+  <Button
+    size="medium"
+    className="m-4 bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() => alertMessage.info('Wow so easy!', { transition: Zoom })}
+  >
+    Zoom
+  </Button>
+  <Button
+    size="medium"
+    className="m-4 bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+    onClick={() => alertMessage.info('Wow so easy!', { transition: Slide })}
+  >
+    Slide
+  </Button>
+</div>
+
+```jsx copy
+import { Alert, alertMessage } from './path-to-alert-component';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+
+const App = () => {
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <Button
+        size="medium"
+        className="m-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+        onClick={() => alertMessage.info('Wow so easy!', { transition: Flip })}
+      >
+        Flip
+      </Button>
+      <Alert />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## options
+
+### AlertMessage Methods
+
+| Method  | Type     | Description                                                                                                                |
+| ------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| info    | function | Displays an informational toast notification. Takes two parameters: `text` (string) and optional `options` (ToastOptions). |
+| success | function | Displays a success toast notification. Takes two parameters: `text` (string) and optional `options` (ToastOptions).        |
+| warning | function | Displays a warning toast notification. Takes two parameters: `text` (string) and optional `options` (ToastOptions).        |
+| error   | function | Displays an error toast notification. Takes two parameters: `text` (string) and optional `options` (ToastOptions).         |
+| default | function | Displays a default toast notification. Takes two parameters: `text` (string) and optional `options` (ToastOptions).        |
+
+### ToastContainer Props
+
+| Prop             | Type   | Default      | Description                                                                             |
+| ---------------- | ------ | ------------ | --------------------------------------------------------------------------------------- |
+| position         | string | 'top-center' | The position of the toast notification on the screen.                                   |
+| autoClose        | number | 3000         | Time in milliseconds to auto close the toast.                                           |
+| newestOnTop      | bool   | true         | Whether the newest toast appears on top.                                                |
+| closeOnClick     | bool   | true         | Whether the toast closes when clicked.                                                  |
+| rtl              | bool   | false        | Right-to-left layout support.                                                           |
+| pauseOnFocusLoss | bool   | true         | Pause the toast auto close when the window loses focus.                                 |
+| draggable        | bool   | false        | Whether the toast is draggable.                                                         |
+| theme            | string | 'light'      | The theme of the toast notifications. Available options are `light`, `dark`, `colored`. |
+
+Click [here](https://fkhadra.github.io/react-toastify/introduction) to read more.

@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/Components/Alert": "pages/Components/Alert.js",
-  "/Components/button": "pages/Components/button.js",
   "/Components/select": "pages/Components/select.js"
 }

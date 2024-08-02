@@ -22,7 +22,7 @@ const alertMessage: AlertMessage = {
 const Alert = () => {
   return (
     <ToastContainer
-      position="top-left"
+      position="top-center"
       autoClose={3000}
       newestOnTop
       closeOnClick
