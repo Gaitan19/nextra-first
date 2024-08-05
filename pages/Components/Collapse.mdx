@@ -1,0 +1,69 @@
+# Collapse Component
+
+## Installation
+
+React collapse component toggles the visibility of content across your project with a few classes and some scripts. Useful for a large amount of content.
+
+```bash copy
+yarn add @coreui/react @coreui/coreui
+```
+
+or
+
+```bash copy
+npm i --save @coreui/react @coreui/coreui
+```
+
+import '@coreui/coreui/dist/css/coreui.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { useState } from 'react';
+import { CButton, CRow, CCol } from '@coreui/react';
+import Collapse from '../../components/Collapse';
+
+export const ExampleCollapse = () => {
+  const [visibleA, setVisibleA] = useState(false);
+  const [visibleB, setVisibleB] = useState(false);
+
+return (
+
+<>
+  <CButton
+    color="primary"
+    onClick={() => setVisibleA((prevVisibleA) => !prevVisibleA)}
+  >
+    Toggle first element
+  </CButton>
+  <CButton
+    color="primary"
+    onClick={() => setVisibleB((prevVisibleB) => !prevVisibleB)}
+  >
+    Toggle second element
+  </CButton>
+  <CButton
+    color="primary"
+    onClick={() => {
+      setVisibleA((prevVisibleA) => !prevVisibleA);
+      setVisibleB((prevVisibleB) => !prevVisibleB);
+    }}
+  >
+    Toggle both elements
+  </CButton>
+  <CRow>
+    <CCol xs={6}>
+      <Collapse
+        visible={visibleA}
+        content="Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident."
+      />
+    </CCol>
+    <CCol xs={6}>
+      <Collapse
+        visible={visibleB}
+        content="Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident."
+      />
+    </CCol>
+  </CRow>
+</>
+); };
+
+<ExampleCollapse />
