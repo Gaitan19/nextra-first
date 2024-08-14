@@ -1,0 +1,172 @@
+# Button Component Documentation
+
+Use the `Button` component with custom styles for actions in forms, dialogs, and more, with support for multiple sizes, states, and more.
+
+## Examples
+
+import Button from '../../components/Button';
+
+<div className="mb-3">
+  <Button variant="primary" size="medium" className="me-2">
+    Primary
+  </Button>
+  <Button variant="secondary" size="medium" className="me-2">
+    Secondary
+  </Button>
+  <Button variant="success" size="medium" className="me-2">
+    Success
+  </Button>
+  <Button variant="danger" size="medium" className="me-2">
+    Danger
+  </Button>
+  <Button variant="warning" size="medium" className="me-2">
+    Warning
+  </Button>
+  <Button variant="info" size="medium" className="me-2">
+    Info
+  </Button>
+  <Button variant="light" size="medium" className="me-2">
+    Light
+  </Button>
+  <Button variant="dark" size="medium" className="me-2">
+    Dark
+  </Button>
+</div>
+
+## Code Examples
+
+```js copy
+<div className="mb-3">
+  <Button variant="primary" size="medium" className="me-2">
+    {' '}
+    Primary{' '}
+  </Button>
+  <Button variant="secondary" size="medium" className="me-2">
+    Secondary
+  </Button>
+  <Button variant="success" size="medium" className="me-2">
+    Success
+  </Button>
+  <Button variant="danger" size="medium" className="me-2">
+    Danger
+  </Button>
+  <Button variant="warning" size="medium" className="me-2">
+    Warning
+  </Button>
+  <Button variant="info" size="medium" className="me-2">
+    Info
+  </Button>
+  <Button variant="light" size="medium" className="me-2">
+    Light
+  </Button>
+  <Button variant="dark" size="medium" className="me-2">
+    Dark
+  </Button>
+</div>
+```
+
+## Outline Buttons
+
+If you need a button without the hefty background colors, use the `outline` prop to create an outline button.
+
+### Examples
+
+<div className="mb-3">
+  <Button variant="primary" outline size="medium" className="me-2">
+    Primary
+  </Button>
+  <Button variant="secondary" outline size="medium" className="me-2">
+    Secondary
+  </Button>
+  <Button variant="success" outline size="medium" className="me-2">
+    Success
+  </Button>
+  <Button variant="danger" outline size="medium" className="me-2">
+    Danger
+  </Button>
+  <Button variant="warning" outline size="medium" className="me-2">
+    Warning
+  </Button>
+  <Button variant="info" outline size="medium" className="me-2">
+    Info
+  </Button>
+  <Button variant="light" outline size="medium" className="me-2">
+    Light
+  </Button>
+  <Button variant="dark" outline size="medium" className="me-2">
+    Dark
+  </Button>
+</div>
+
+### Code Examples
+
+```js copy
+<div className="mb-3">
+  <Button variant="primary" outline size="medium" className="me-2">
+    Primary
+  </Button>
+  <Button variant="secondary" outline size="medium" className="me-2">
+    Secondary
+  </Button>
+  <Button variant="success" outline size="medium" className="me-2">
+    Success
+  </Button>
+  <Button variant="danger" outline size="medium" className="me-2">
+    Danger
+  </Button>
+  <Button variant="warning" outline size="medium" className="me-2">
+    Warning
+  </Button>
+  <Button variant="info" outline size="medium" className="me-2">
+    Info
+  </Button>
+  <Button variant="light" outline size="medium" className="me-2">
+    Light
+  </Button>
+  <Button variant="dark" outline size="medium" className="me-2">
+    Dark
+  </Button>
+</div>
+```
+
+## Sizes
+
+Fancy larger or smaller buttons? Use the `size` prop with `lg` or `sm` for additional sizes.
+
+### Examples
+
+<div className="mb-3">
+  <Button variant="primary" size="large" className="me-2">
+    Large Primary
+  </Button>
+
+{' '}
+
+<Button variant="primary" size="small" className="me-2">
+  Small Primary
+</Button>
+
+</div>
+
+### Code Examples
+
+```js copy
+<div className="mb-3">
+  <Button variant="primary" size="lg" className="me-2">
+    Large Primary
+  </Button>
+  <Button variant="primary" size="sm" className="me-2">
+    Small Primary
+  </Button>
+</div>
+```
+
+## Props
+
+| Prop      | Type   | Default   | Description                                                                                                                                                      |
+| --------- | ------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children  | node   | -         | The content inside the button, typically text or other elements.                                                                                                 |
+| variant   | string | 'primary' | Determines the button's color scheme and styling. Available options are `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `link`. |
+| outline   | bool   | false     | Whether to show a border with text color instead of a solid background.                                                                                          |
+| size      | string | 'medium'  | Determines the button's size. Available options are `small`, `medium`, `large`.                                                                                  |
+| className | string | ''        | Additional CSS classes to apply to the button for further customization.                                                                                         |

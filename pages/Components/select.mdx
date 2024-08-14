@@ -1,0 +1,169 @@
+# Select Component
+
+## Installation
+
+Start by installing `react-select`:
+
+```bash copy
+yarn add react-select
+```
+
+or
+
+```bash copy
+npm i --save react-select
+```
+
+The Select component is a customizable select input built on top of the react-select library. It provides various features such as multi-select, search functionality, clearable options, and more.
+
+## Examples
+
+### Basic Select
+
+A basic example demonstrating the use of the Select component with a simple set of options.
+
+import Select from '../../components/Select';
+import {
+  basicOptions,
+  multiSelectOptions,
+  disabledOptions,
+} from '../../data/selectData';
+
+<div className="mt-4">
+  <Select options={basicOptions} defaultValue={basicOptions[0]} />
+</div>
+
+```jsx copy
+import Select from '../../components/Select';
+
+const basicOptions = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'cherry', label: 'Cherry' },
+  { value: 'date', label: 'Date' },
+  { value: 'elderberry', label: 'Elderberry' },
+];
+
+const App = () => (
+  <Select options={basicOptions} defaultValue={basicOptions[0]} />
+);
+
+export default App;
+```
+
+### Multi-Select
+
+An example demonstrating the use of the Select component with multi-select functionality enabled.
+
+<div className="mt-4">
+  <Select
+    options={multiSelectOptions}
+    isMulti
+    defaultValue={[multiSelectOptions[0], multiSelectOptions[1]]}
+  />
+</div>
+
+```jsx copy
+import Select from '../../components/Select';
+
+const multiSelectOptions = [
+  { value: 'red', label: 'Red' },
+  { value: 'blue', label: 'Blue' },
+  { value: 'green', label: 'Green' },
+  { value: 'yellow', label: 'Yellow' },
+  { value: 'purple', label: 'Purple' },
+];
+
+const App = () => (
+  <Select
+    options={multiSelectOptions}
+    isMulti
+    defaultValue={[multiSelectOptions[0], multiSelectOptions[1]]}
+  />
+);
+
+export default App;
+```
+
+### Disabled
+
+An example demonstrating the use of the Select component with the disabled state.
+
+<div className="mt-4">
+  <Select options={disabledOptions} isDisabled />
+</div>
+
+```jsx copy import Select from '../../components/Select';
+const disabledOptions = [
+  { value: 'car', label: 'Car' },
+  { value: 'bike', label: 'Bike' },
+  { value: 'bus', label: 'Bus' },
+  { value: 'train', label: 'Train' },
+  { value: 'airplane', label: 'Airplane' },
+];
+
+const App = () => <Select options={disabledOptions} isDisabled />;
+
+export default App;
+```
+
+### Animated Components
+
+React-Select comes with a makeAnimated function that create animated wrappers around components passed in as arguments. If no arguments are passed, built-in components are wrapped instead.
+
+import makeAnimated from 'react-select/animated';
+
+export const animatedComponents = makeAnimated();
+
+<div className="mt-4">
+  <Select
+    options={multiSelectOptions}
+    isMulti
+    defaultValue={[multiSelectOptions[0], multiSelectOptions[1]]}
+    components={animatedComponents}
+  />
+</div>
+
+```jsx copy
+import makeAnimated from 'react-select/animated';
+import Select from '../../components/Select';
+
+const multiSelectOptions = [
+  { value: 'red', label: 'Red' },
+  { value: 'blue', label: 'Blue' },
+  { value: 'green', label: 'Green' },
+  { value: 'yellow', label: 'Yellow' },
+  { value: 'purple', label: 'Purple' },
+];
+
+const animatedComponents = makeAnimated();
+
+export default function AnimatedMulti() {
+  return (
+    <Select
+      options={multiSelectOptions}
+      isMulti
+      defaultValue={[multiSelectOptions[3], multiSelectOptions[4]]}
+      components={animatedComponents}
+    />
+  );
+}
+```
+
+## Props
+
+| Prop            | Type   | Default        | Description                                                                                                |
+| --------------- | ------ | -------------- | ---------------------------------------------------------------------------------------------------------- |
+| options         | array  | -              | An array of options to display in the select menu. Each option is an object with `value` and `label` keys. |
+| defaultValue    | object | -              | The default selected option.                                                                               |
+| isDisabled      | bool   | false          | Whether the select input is disabled.                                                                      |
+| isLoading       | bool   | false          | Whether the select input is loading.                                                                       |
+| isClearable     | bool   | true           | Whether the selected option can be cleared.                                                                |
+| isRtl           | bool   | false          | Whether to display the select input in right-to-left mode.                                                 |
+| isSearchable    | bool   | false          | Whether the select input is searchable.                                                                    |
+| isMulti         | bool   | false          | Whether to enable multi-select functionality.                                                              |
+| className       | string | 'basic-single' | Additional CSS classes to apply to the select input.                                                       |
+| classNamePrefix | string | 'select'       | Prefix for the CSS class names.                                                                            |
+| name            | string | 'select'       | The name attribute of the select input.                                                                    |
+| placeholder     | string | 'Select...'    | Placeholder text for the select input.                                                                     |
+| props           | object | -              | Additional props passed to the `react-select` component.                                                   |

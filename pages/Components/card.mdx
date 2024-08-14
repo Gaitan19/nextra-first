@@ -1,0 +1,180 @@
+# Card Component
+
+The `Card` component offers a flexible and customizable way to display content. Below are the details of the properties and usage examples.
+
+## Examples
+
+### Basic Card
+
+import Card from '../../components/Card';
+import Button from '../../components/Button';
+
+<Card
+  title="Card title"
+  text="Some quick example text to build on the card title and make up the bulk of the card's content."
+>
+  <Button variant="primary" size="medium" className="mt-4">
+    Go Somewhere
+  </Button>
+</Card>
+
+```jsx copy
+<Card
+  title="Card title"
+  text="Some quick example text to build on the card title and make up the bulk of the card's content."
+>
+  <Button variant="primary" size="medium" className="mt-4">
+    Go Somewhere
+  </Button>
+</Card>
+```
+
+### Card with Header and Footer
+
+<Card
+  header="Card Header"
+  footer="Card Footer"
+  title="Card title"
+  text="Some quick example text to build on the card title and make up the bulk of the card's content."
+>
+  <Button variant="primary" size="medium" className="mt-4">
+    Go Somewhere
+  </Button>
+</Card>
+
+```jsx copy
+<Card
+  header="Card Header"
+  footer="Card Footer"
+  title="Card title"
+  text="Some quick example text to build on the card title and make up the bulk of the card's content."
+>
+  <Button variant="primary" size="medium" className="mt-4">
+    Go Somewhere
+  </Button>
+</Card>
+```
+
+### Text alignment
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <Card textAlign="left" title="Left Aligned" text="This text is left aligned.">
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+  <Card
+    textAlign="center"
+    title="Center Aligned"
+    text="This text is center aligned."
+  >
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+  <Card
+    textAlign="right"
+    title="Right Aligned"
+    text="This text is right aligned."
+  >
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+</div>
+
+```jsx copy
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <Card textAlign="left" title="Left Aligned" text="This text is left aligned.">
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+  <Card
+    textAlign="center"
+    title="Center Aligned"
+    text="This text is center aligned."
+  >
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+  <Card
+    textAlign="right"
+    title="Right Aligned"
+    text="This text is right aligned."
+  >
+    <Button variant="primary" size="medium" className="mt-4">
+      Go Somewhere
+    </Button>
+  </Card>
+</div>
+```
+
+### Card Variants
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <Card variant="basic" title="Basic Card" text="This is a basic card." />
+  <Card variant="primary" title="Primary Card" text="This is a primary card." />
+  <Card
+    variant="secondary"
+    title="Secondary Card"
+    text="This is a secondary card."
+  />
+  <Card variant="success" title="Success Card" text="This is a success card." />
+  <Card variant="danger" title="Danger Card" text="This is a danger card." />
+  <Card variant="warning" title="Warning Card" text="This is a warning card." />
+</div>
+```jsx copy
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+  <Card
+    variant="basic"
+    title="Basic Card"
+    text="This is a basic card."
+  />
+  <Card
+    variant="primary"
+    title="Primary Card"
+    text="This is a primary card."
+  />
+  <Card
+    variant="secondary"
+    title="Secondary Card"
+    text="This is a secondary card."
+  />
+  <Card
+    variant="success"
+    title="Success Card"
+    text="This is a success card."
+  />
+  <Card
+    variant="danger"
+    title="Danger Card"
+    text="This is a danger card."
+  />
+  <Card
+    variant="warning"
+    title="Warning Card"
+    text="This is a warning card."
+  />
+</div>
+    ```
+
+## Props
+
+| Prop      | Type   | Default          | Description                                                                                      |
+| --------- | ------ | ---------------- | ------------------------------------------------------------------------------------------------ |
+| title     | string | -                | The title of the card.                                                                           |
+| subtitle  | string | -                | The subtitle of the card.                                                                        |
+| text      | string | -                | The main text content of the card.                                                               |
+| imgSrc    | string | -                | The URL of the image to display in the card.                                                     |
+| imgAlt    | string | 'Card image cap' | The alt text for the image.                                                                      |
+| header    | string | -                | The content of the card's header.                                                                |
+| footer    | string | -                | The content of the card's footer.                                                                |
+| textAlign | string | 'left'           | The text alignment (`left`, `center`, `right`).                                                  |
+| variant   | string | 'basic'          | The style variant of the card (`basic`, `primary`, `secondary`, `success`, `danger`, `warning`). |
+| outline   | bool   | false            | Whether to show a border instead of a solid background.                                          |
+| className | string | ''               | Additional CSS classes for the card.                                                             |
+| children  | node   | -                | Additional content inside the card body.                                                         |
