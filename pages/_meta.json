@@ -4,6 +4,10 @@
     "title": "About",
     "type": "page"
   },
+  "components": {
+    "title": "Components",
+    "type": "page"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
